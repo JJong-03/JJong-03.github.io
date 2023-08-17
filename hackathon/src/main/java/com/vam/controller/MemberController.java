@@ -49,6 +49,7 @@ public class MemberController {
 		
 	}
 	
+	
 	//회원가입
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception{
@@ -58,14 +59,20 @@ public class MemberController {
 		
 		rawPw = member.getMemberPw();			// 비밀번호 데이터 얻음
 		encodePw = pwEncoder.encode(rawPw);		// 비밀번호 인코딩
-		member.setMemberPw(encodePw);			// 인코딩된 비밀번호 member객체에 다시 저장
+		member.setMemberPw(encodePw);		// 인코딩된 비밀번호 member객체에 다시 저장
+		
+		/* 회원 역할 설정 */
+	    int adminCk = member.getAdminCk();
+	    member.setAdminCk(adminCk);
 		
 		/* 회원가입 쿼리 실행 */
 		memberservice.memberJoin(member);
 		
-		return "redirect:/firstmain";
+		return "redirect:/main";
 		
 	}
+	
+	
 	
 	//로그인 페이지 이동
 	@RequestMapping(value="/login", method = RequestMethod.GET)

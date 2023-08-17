@@ -5,62 +5,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/resources/css/member/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Titillium+Web:wght@300;600&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/dd4cd92877.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/resources/css/style.css">
 </head>
+
 <body>
+  <header>
+    <div class="logo_1" onclick="location.href='index.html'"><i class="fa-regular fa-lightbulb"></i></div>
+  </header>
 
-<div class="wrapper">
-	<div class="wrap">
-	
-		<form id="login_form" method="post">
-			<div class="logo_wrap">
-				<span>Book Mall</span>
-			</div>
-			<div class="login_wrap"> 
-				<div class="id_wrap">
-						<div class="id_input_box">
-						<input class="id_input" name="memberId">
-					</div>
-				</div>
-				<div class="pw_wrap">
-					<div class="pw_input_box">
-						<input class="pw_iput" name="memberPw">
-					</div>
-				</div>
-				
-				<c:if test = "${result == 0 }">
-					<div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-				</c:if>
-				
-				<div class="login_button_wrap">
-					<input type="button" class="login_button" value="로그인">
-				</div>			
-			</div>
-		</form>
-		
-	</div>
+  <form id="form" method="post">
+    <div class="supporte_main">
+      <div class="loginForm">
+        <div class="form_space">
+          <p class="form_title">아이디</p>
+          <input class="inputform" name="memberId">
+        </div>
+        <div class="form_space">
+          <p class="form_title">비밀번호</p>
+          <input class="inputform" name="memberPw">
+        </div>
+        <div class="finder">
+          <a href="#">아이디 찾기</a>
+          <a href="#">비밀번호 찾기</a>
+        </div>
+        <input type="button" class="go" value="로그인">
+      </div>
+    </div>
+  </form>
 
-</div>
 
 <script>
 
-	/* 로그인 버튼 클릭 메서드 */
-	$(".login_button").click(function(){
-		
-		//alert("로그인 버튼 작동");
-		
-		/* 로그인 메서드 서버 요청 */
-		$("#login_form").attr("action", "/member/login.do");
-		$("#login_form").submit();
-		
-	});
+/* 로그인 버튼 클릭 메서드 */
+$(".go").click(function(){
+	
+	//alert("로그인 버튼 작동");
+	
+	/* 로그인 메서드 서버 요청 */
+	$("#form").attr("action", "/member/login.do");
+	$("#form").submit();
+	
+});
 
 </script>
-
+  
 </body>
+
 </html>

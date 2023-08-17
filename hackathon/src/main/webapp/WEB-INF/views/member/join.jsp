@@ -51,16 +51,10 @@
 				</div>
 				<span class="final_name_ck">이름을 입력해주세요.</span>
 			</div>
-    
-			<div class="adminck_wrap">
-				<div class="adminck_name">후원자 확인</div>
-				<div class="adminck_input_box">
-					<input type="radio" name="adminCk" value="0" checked>피후원자
-    				<input type="radio" name="adminCk" value="2">후원자
-				</div>
-			</div>
-			
-			
+			<label for="role">역할 선택:</label><br>
+			    <input type="radio" id="adminCk" name="adminCk" value="0">피후원자
+			    <input type="radio" id="adminCk" name="adminCk" value="1">관리자
+			    <input type="radio" id="adminCk" name="adminCk" value="2">후원자
 			<div class="mail_wrap">
 				<div class="mail_name">이메일</div> 
 				<div class="mail_input_box">
@@ -103,7 +97,7 @@
 				<span class="final_addr_ck">주소를 입력해주세요.</span>
 			</div>
 			<div class="join_button_wrap">
-				<input type="button" class="join_button" value="가입하기">
+				<input type="button" class="go" value="가입하기">
 			</div>
 		</div>
 	</form>
@@ -127,7 +121,7 @@ var code = "";				//이메일전송 인증번호 저장위한 코드
 
 $(document).ready(function(){
 	//회원가입 버튼(회원가입 기능 작동)
-	$(".join_button").click(function(){
+	$(".go").click(function(){
 		
 		/* 입력값 변수 */
 		var id = $('.id_input').val(); 				// id 입력란
@@ -136,6 +130,7 @@ $(document).ready(function(){
 		var name = $('.user_input').val();			// 이름 입력란
 		var mail = $('.mail_input').val();			// 이메일 입력란
 		var addr = $('.address_input_3').val();		// 주소 입력란
+		
 		/* 아이디 유효성검사 */
 		if(id == ""){
 			$('.final_id_ck').css('display','block');
@@ -190,10 +185,13 @@ $(document).ready(function(){
 			addressCheck = true;
 		}		
 		
--
+		/* 최종 유효성 검사 */
+		if(idCheck&&idckCheck&&pwCheck&&pwckCheck&&pwckcorCheck&&nameCheck&&mailCheck&&mailnumCheck&&addressCheck ){
+
 			$("#join_form").attr("action", "/member/join");
 			$("#join_form").submit();			
-				
+			
+		}		
 		
 		return false;
 
@@ -363,8 +361,6 @@ $('.pwck_input').on("propertychange change keyup paste input", function(){
 	var form = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	return form.test(email);
 }
- 
-
 
 </script>
 
