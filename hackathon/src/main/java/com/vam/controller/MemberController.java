@@ -209,7 +209,7 @@ public class MemberController {
         
         session.invalidate();
         
-        return "redirect:/firstmain";        
+        return "redirect:/main";        
         
     }
     

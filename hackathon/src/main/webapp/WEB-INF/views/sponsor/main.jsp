@@ -3,86 +3,39 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>          
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Welcome BookMall</title>
-<link rel="stylesheet" href="resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>  
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>밝은길</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Titillium+Web:wght@300;600&display=swap"
+      rel="stylesheet"
+    >
+    <script src="https://kit.fontawesome.com/dd4cd92877.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
-
-
-
-
-<div class="wrapper">
-	<div class="wrap">
-		<div class="top_gnb_area">
-			<ul class="list">
-				<c:if test = "${member == null}">	<!-- 로그인 x -->	
-					<li >
-						<a href="/member/login">로그인</a>
-					</li>
-					<li>
-						<a href="/member/join">회원가입</a>
-					</li>
-				</c:if>
-				<c:if test="${member != null }">	<!-- 로그인 o -->		
-					<c:if test="${member.adminCk == 1 }">	<!-- 관리자 계정 -->
-						<li><a href="/admin/main">관리자 페이지</a></li>
-					</c:if>							
-            <!-- gnv_area -->	
-            <div class="top_gnb_area">
-                <ul class="list">	
-                    <li><a href="/main">메인 페이지</a></li>
-                    <li><a href="/member/logout.do">로그아웃</a></li>
-                    <li>고객센터</li>			
-                </ul>
-            </div>
-				</c:if>						
-			</ul>			
-		</div>
-
-			
-			<div class="login_area">
-			
-				<!-- 로그인 하지 않은 상태 -->
-				<c:if test = "${member == null }">
-					<div class="login_button"><a href="/member/login">로그인</a></div>
-					<span><a href="/member/join">회원가입</a></span>
-					<span><a href="/recipient/video">영상 시청</a></span>
-					<span><a href="/recipient/shoppingMall">쇼핑몰 입장</a></span>				
-				</c:if>				
-				
-				<!-- 로그인한 상태 -->
-				<c:if test="${ member != null }">
-					<div class="login_success_area">
-						<span>회원 : ${member.memberName}</span>
-						<span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="\#,###.##"/></span>
-						<span>포인트 : <fmt:formatNumber value="${member.point }" pattern="#,###" /></span>
-						<a href="/member/logout.do">로그아웃</a>
-					</div>
-					
-				   <div class="login_button"><a href="/sponsor/sponsoring">후원하기</a></span>
-					<span><a href="/sponsor/recipientImfo">피후원자 정보</a></span>
-					<span><a href="/sponsor/myImfo">본인 정보</a></span>
-					
-				</c:if>
-				
-			</div>
-			
-		
-	</div>	<!-- class="wrap" -->
-</div>	<!-- class="wrapper" -->
-
-
-		
+  <header>
+    <div class="logo_1" onclick="location.href='index.html'"><i class="fa-regular fa-lightbulb"></i></div>
+  </header>
+  <main>
+    <section class="login">
+      <div class="logo"><i class="fa-solid fa-user"></i></div>
+           <div class="detail"><a href="/sponsor/sponsoring">후원하기</a></div>
+    
+    </section>
+    <section class="join">
+      <div class="logo"><i class="fa-solid fa-users"></i></div>
+ 			
+		     <div class="detail"><a href="/sponsor/recipientImfo">피후원자 정보</a></div>	
+    </section>
+  </main>
+  <footer>
+    
+  </footer>
 </body>
 </html>
+

@@ -43,10 +43,6 @@
 		</tr>
 		<%
 			while (rs.next()) {
-				
-						
-					
-					
 		%>
 		<tr>
 			<td><%=rs.getString("memberName")%></td>
@@ -60,9 +56,8 @@
 		</tr>
 	
 
-
 	<%
-			}
+		}
 	} catch (Exception e) {
 	e.printStackTrace();
 	} finally {

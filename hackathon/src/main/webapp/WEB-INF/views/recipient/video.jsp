@@ -14,35 +14,19 @@
 </head>
 <body>
 
-<div class="wrapper">
-	
-	<div class="wrap">
 
-			<div class="logo_wrap">
-				<span>Book Mall</span>
-			</div>
-				
-				<div class="video_button_wrap">
-					<input type="button" class="video_button" value="영상 시청">
-				</div>			
-			</div>	
-	</div>
 
-<script>
-
-	/* 로그인 버튼 클릭 메서드 */
-	$(".login_button").click(function(){
-		
-		//alert("로그인 버튼 작동");
-		
-		/* 로그인 메서드 서버 요청 */
-		$("#login_form").attr("action", "/member/login.do");
-		$("#login_form").submit();
-		
-	});
-
-</script>
-
+   <div class = "video_con">
+   <iframe width="1080" height="720" src="https://www.youtube.com/embed/CFxKG_HIl0Y" 
+   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+   encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   </div>
+   <style>
+      .video_con {
+         text-align : center;
+         padding : 100px 0px;
+      }
+   </style>
 
 
 </body>
